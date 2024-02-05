@@ -1,0 +1,62 @@
+.origin
+{
+    border: 2px solid black;
+    background-color:white;
+    margin: 0% 30%;
+    padding: 20px;
+    border-radius: 10px;
+}
+html
+{
+height:100%;
+}
+form
+{
+background-color:white;
+}
+h1
+{
+    text-align: center;
+    background-color: aqua;
+    border-radius: 10px;
+}
+.submit-btn
+{
+    text-align: center;
+}
+
+.body
+{
+ background-color:black;
+ height:100%;
+ }
+*
+{
+padding:5px;
+}
+.div
+{
+margin:0% 20%;
+background-color:white;
+border-radius:10px;
+}
+    table
+    {
+    width:80%
+    }
+    .details
+    {
+    border:2px solid black ;
+    }
+
+    tbody,.div2
+    {
+    border: solid black;
+    border-radius:10px;
+    }
+    .div2,*
+    {
+    text-align:left;
+    }
+
+

@@ -1,0 +1,331 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>education details</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</head>
+<body>
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+
+                <strong> Message:</strong>{{ message }}
+            </div>
+{% endfor %}
+<div class="body">
+    <div class="div">
+
+        <form method="post" href="personal_details">
+            <h1>educational details</h1>
+            {% if education %}
+            <div class="container text-center" id="div1">
+                {% for edu in education %}
+                <div id="div2" class="div2">
+                  <div class="row">
+
+                    <div class="col">
+                      <label for="course"  class="form-label">course</label>
+                        <input type="text" name="course{{forloop.counter}}" id="course{{forloop.counter}}" class="form-control" value={{edu.course}} required>
+
+                    </div>
+                  </div>
+                    <div class="row">
+
+                    <div class="col">
+                       <label for="college"  class="form-label">college</label>
+                        <input type="text" name="college{{forloop.counter}}" id="college" class="form-control" value={{edu.college}} required>
+
+                    </div>
+                    <div class="col">
+                   <label for="passing"  class="form-label">year of passing</label>
+                         <input type="text" name="passing{{forloop.counter}}" id="passing" class="form-control" value={{edu.year_of_passing}} required>
+                     </div>
+                  </div>
+                    <div class="row">
+
+                    <div class="col">
+                        <label for="city"  class="form-label">college city</label>
+                         <input type="text" name="city{{forloop.counter}}" id="city" class="form-control" value={{edu.college_city}} required>
+                      </div>
+                        <div class="col">
+                        <label for="percentage"  class="form-label">percentage</label>
+                        <input type="number" name="percentage{{forloop.counter}}" id="percentage" class="form-control" value={{edu.percentage}} required>
+                      </div>
+
+                  </div>
+
+                </div>
+                    {% endfor %}
+                     <div class="row">
+
+                    <div class="col">
+                       <input class="btn btn-danger" type="submit" value="Submit">
+                    </div>
+                    <div class="col">
+                     <img src="{% static 'plus.png' %}" height="50px" width="50px" onclick="add2()" >
+                    </div>
+
+                </div>
+
+
+            </div>
+            {% else %}
+            <div class="container text-center" id="div1">
+
+                <div id="div2" class="div2">
+                  <div class="row">
+
+                    <div class="col">
+                       <label for="course"  class="form-label">course</label>
+                        <input type="text" name="course1" id="course" class="form-control"  required>
+
+                    </div>
+
+                  </div>
+                    <div class="row">
+
+                    <div class="col">
+                        <label for="college"  class="form-label">college</label>
+                        <input type="text" name="college1" id="college" class="form-control"  required>
+
+                    </div>
+                    <div class="col">
+                     <label for="passing"  class="form-label">year of passing</label>
+                         <input type="number" name="passing1" id="passing" class="form-control"  required>
+
+                    </div>
+                  </div>
+                    <div class="row">
+
+                    <div class="col">
+                       <label for="city"  class="form-label">college city</label>
+                         <input type="text" name="city1" id="city" class="form-control"  required>
+
+                    </div>
+                        <div class="col">
+                       <label for="percentage"  class="form-label">percentage</label>
+                        <input type="number" name="percentage1" id="percentage" class="form-control"  required>
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+
+
+            </div>
+            <div class="row">
+
+                    <div class="col">
+                       <input class="btn btn-danger" type="submit" value="Submit">
+                    </div>
+                    <div class="col">
+                     <img src="{% static 'plus.png' %}" height="50px" width="50px" onclick="add2()" >
+                    </div>
+                  </div>
+            {% endif %}
+        </form>
+    </div>
+
+</div>
+
+
+</body>
+<script>
+  function add2()
+{
+var rows=document.getElementById('div1');
+var child=rows.getElementsByTagName('label').length;
+
+a=child/5;
+a=a+1;
+
+
+var div2=document.createElement("div");
+div2.className="div2";
+rows.appendChild(div2);
+
+var row1=document.createElement("div");
+row1.className="row";
+div2.appendChild(row1);
+
+var row2=document.createElement("div");
+row2.className="row";
+div2.appendChild(row2);
+
+var row3=document.createElement("div");
+row3.className="row";
+div2.appendChild(row3);
+
+
+var col1=document.createElement("div");
+col1.className="col";
+row1.appendChild(col1);
+
+var col2=document.createElement("div");
+col2.className="col";
+row2.appendChild(col2);
+
+var col3=document.createElement("div");
+col3.className="col";
+row2.appendChild(col3);
+
+var col4=document.createElement("div");
+col4.className="col";
+row3.appendChild(col4);
+
+var col5=document.createElement("div");
+col5.className="col";
+row3.appendChild(col5);
+
+
+
+//////////////////////////////////////row 1/////////////////////
+
+const lable=document.createElement('label');
+  lable.for='course'+a;
+   lable.textContent="course";
+   lable.className="form-label";
+ col1.append(lable);
+  const input = document.createElement('input');
+   input.type = 'text';
+   input.id='course'+a;
+   input.className="form-control"
+    input.name='course'+a;
+
+input.setAttribute("required", "");
+input.required = true;
+    col1.append(input);
+
+<!-------------------------           row 2----------------------->
+    const lable2=document.createElement('label');
+  lable2.for='college'+a;
+   lable2.textContent="college name";
+   lable2.className="form-label";
+ col2.append(lable2);
+  const input2 = document.createElement('input');
+   input2.type = 'text';
+   input2.id='college'+a;
+    input2.name='college'+a;
+     input2.className="form-control"
+     input2.setAttribute("required", "");    //turns required on
+input2.required = true;
+    col2.append(input2);
+
+
+
+const lable3=document.createElement('label');
+  lable3.for='passing'+a;
+   lable3.textContent="passing year ";
+   lable3.className="form-label";
+ col3.append(lable3);
+  const input3 = document.createElement('input');
+   input3.type = 'number';
+   input3.id='passing'+a;
+    input3.name='passing'+a;
+     input3.className="form-control"
+  input3.setAttribute("required", "");
+input3.required = true;
+    col3.append(input3);
+
+ <!----------------------------------------  row 3---------------------------->
+
+    const lable4=document.createElement('label');
+  lable4.for='city'+a;
+   lable4.textContent="city";
+   lable4.className="form-label";
+ col4.append(lable4);
+  const input4 = document.createElement('input');
+   input4.type = 'text';
+   input4.id='city'+a;
+    input4.name='city'+a;
+     input4.className="form-control"
+  input4.setAttribute("required", "");    //turns required on
+input4.required = true;
+    col4.append(input4);
+
+
+
+ const lable5=document.createElement('label');
+  lable5.for='percentage'+a;
+   lable5.textContent="percentage ";
+   lable5.className="form-label";
+ col5.append(lable5);
+  const input5 = document.createElement('input');
+    input5.type="number";
+   input5.id='percentage'+a;
+    input5.name='percentage'+a;
+     input5.className="form-control"
+     input5.setAttribute("required", "");    //turns required on
+input5.required = true;
+    col5.append(input5);
+
+
+
+
+a=a+1;
+
+}
+</script>
+<style>
+
+
+body
+{
+ background: linear-gradient(to bottom, #00ffcc 18%, #0066ff 100%);
+ height:100%;
+ }
+*
+{
+padding:5px ;
+}
+.div
+{
+margin:0% 20%;
+background: linear-gradient(to right, #66ccff 0%, #99ffcc 100%);
+border-radius:10px;
+border:2px solid black;
+
+}
+h1
+{
+background-color:transparent;
+}
+form
+{
+background: linear-gradient(to right, #66ccff 0%, #99ffcc 100%);
+}
+    table
+    {
+    width:80%
+    }
+    .details
+    {
+    border:2px solid black ;
+    }
+    img
+    {
+    float:right;
+    }
+    tbody,.div2
+    {
+    border: solid black;
+
+    }
+    .div2
+    {
+    text-align:left;
+    }
+
+
+
+</style>
+</html>

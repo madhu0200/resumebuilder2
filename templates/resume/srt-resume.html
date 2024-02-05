@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+
+	<title>Jonathan Doe | Web Designer, Director | name@yourdomain.com</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+{% load static %}
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
+	<link rel="stylesheet" type="text/css" href="{% static 'resume.css' %}" media="all" />
+
+</head>
+<body>
+
+<div id="doc2" class="yui-t7">
+	<div id="inner">
+	
+		<div id="hd">
+			<div class="yui-gc">
+				<div class="yui-u first">
+					<h1>{{personal.full_name}}</h1>
+
+				</div>
+
+				<div class="yui-u">
+					<div class="contact-info">
+
+						<h3><a href="mailto:{{personal.email}}">{{personal.email}}</a></h3>
+						<h3>{{personal.mobile}}</h3>
+					</div><!--// .contact-info -->
+				</div>
+			</div><!--// .yui-gc -->
+		</div><!--// hd -->
+
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+
+					<!--// .yui-gf -->
+
+					<!--// .yui-gf -->
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Technical</h2>
+						</div>
+						<div class="yui-u">
+
+							<ul class="talent">
+								{% for s in skills %}
+								<li>{{s.skills }}</li>
+								{% endfor %}
+							</ul>
+
+						</div>
+					</div><!--// .yui-gf-->
+
+					<div class="yui-gf">
+	
+						<div class="yui-u first">
+							<h2>Internships</h2>
+						</div><!--// .yui-u -->
+
+						<div class="yui-u">
+							 {% for i in internships %}
+							<div class="job">
+								<h2>{{i.company}}</h2>
+								<h3>{{i.projectname}}</h3>
+								<h4>{{i.durationfrom}}-{{i.durationto}}</h4>
+								<p>{{i.description}} </p>
+								<a href={{i.url}}>{{i.projectname}}(project link)</a>
+							</div>
+							{% endfor%}
+
+
+						</div><!--// .yui-u -->
+					</div><!--// .yui-gf -->
+					<div class="yui-gf">
+
+						<div class="yui-u first">
+							<h2>Experience</h2>
+						</div><!--// .yui-u -->
+
+						<div class="yui-u">
+							 {% for i in projects %}
+							<div class="job">
+								<h2>{{i.company}}</h2>
+								<h3>{{i.projectname}}</h3>
+								<h4>{{i.durationfrom}}-{{i.durationto}}</h4>
+								<p>{{i.description}} </p>
+								<a href={{i.url}}>{{i.projectname}}(project link)</a>
+							</div>
+							{% endfor%}
+
+
+						</div><!--// .yui-u -->
+					</div>
+
+
+					<div class="yui-gf last">
+						<div class="yui-u first">
+							<h2>Education</h2>
+						</div>
+						<div class="yui-u">
+							{% for e in education%}
+							<h2>{{e.college}} - {{e.college_city}}</h2>
+							<h3>{{e.course}} &mdash; {{e.year_of_passing}}<strong>{{e.percentage}} %</strong> </h3><hr>
+							{% endfor %}
+						</div>
+					</div><!--// .yui-gf -->
+
+
+				</div><!--// .yui-b -->
+			</div><!--// yui-main -->
+		</div><!--// bd -->
+
+		<div id="ft">
+			<p>{{personal.full_name}} &mdash; <a href="mailto:{{personal.email}}">{{personal.email}}</a> {{personal.mobile}}</p>
+		</div><!--// footer -->
+
+	</div><!-- // inner -->
+
+
+</div><!--// doc -->
+
+<script>
+
+</script>
+</body>
+</html>
+
