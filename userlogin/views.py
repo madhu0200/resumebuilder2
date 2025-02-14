@@ -51,7 +51,7 @@ class classotp:
         smtp_server = "smtp.gmail.com"
         port = 587  # For starttls
         sender_email = "djangoprojects7@gmail.com"
-        password = "mkicixgcxifwrrnq"
+        password = "google app password"
         receiver_email = email
         current_site = get_current_site(request)
         notp=self.getOTP(email,request)
